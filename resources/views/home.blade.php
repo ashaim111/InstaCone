@@ -27,7 +27,7 @@
         <div class="col-9 pt-5">
             <div>
                 <h1>
-                    InstaClone
+                    {{ $user->username }}
                 </h1>
             </div>
             <div class="d-flex">
@@ -36,16 +36,14 @@
                 <div style="padding-right: 35px"><strong>500</strong> following</div>
             </div>
             <div class="pt-4 font-weight-bold" style="font-weight: bold;">
-                instaclone.org
+                {{ $user->profile->title }}
             </div>
             <div>
-                Great Liars are also great Magicians 🧛‍♂️<br>
-                Snap - asharim111👻 <br>
-                Full-Stack Developer..👨‍💻
+                {{ $user->profile->description }}
             </div>
             <div style="font-weight: bold;">
                 <a href="#">
-                    www.instaclone.org
+                    {{ $user->profile->url }}
                 </a>
             </div>
         </div>
