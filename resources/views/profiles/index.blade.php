@@ -9,18 +9,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-3 p-4">
-            <img src="/images/Logomaker.jpg" class="rounded-circle" style="height: 200px;">
+            <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
-                <h1>
-                    {{ $user->username }}
-                </h1>
-                <a href="/p/create">Add New Post</a>
+                <div class="d-flex align-items-center pb-3">
+                    <h4>
+                        {{ $user->username }}
+                    </h4>
+                    
+                    <follow-button></follow-button>
+                </div>
+                @can('update', $user->profile)
+                    <a href="/p/create">Add New Post</a>
+                @endcan
             </div>
-            <a href="/profile/{{ $user->id }}/edit">
-                Edit Profile
-            </a>
+
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">
+                    Edit Profile
+                </a>
+            @endcan
+
             <div class="d-flex">
                 <div style="padding-right: 35px"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div style="padding-right: 35px"><strong>52k</strong> followers</div>

@@ -13,11 +13,34 @@
         </div>
         <div class="col-4">
             <div>
-                <h3>
-                    {{ $post->user->username; }}
-                </h3>
+                <div class="d-flex align-items-center">
+                    <div style="padding-right: 20px;">
+                        <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100" style="max-width: 40px">
+                    </div>
+                    <div>
+                        <div style="font-weight: bold;">
+                            <a href="/profile/{{ $post->user->id }}">
+                                <span class="text-dark">
+                                    {{ $post->user->username; }}
+                                </span>
+                            </a>
+                            <a href="#" style="padding-left: 20px;">
+                                Follow
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                
                 <p>
-                    {{ $post->caption; }}
+                    <span style="font-weight: bold;">
+                        <a href="/profile/{{ $post->user->id }}">
+                            <span class="text-dark">
+                            {{ $post->user->username; }}
+                            </span>
+                        </a>
+                    </span> {{ $post->caption; }}
                 </p>
             </div>
         </div>
